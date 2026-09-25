@@ -384,6 +384,7 @@ section { position: relative; }
 .card-visual .type-chip {
   position: absolute;
   top: 16px; left: 16px;
+  z-index: 1;
   padding: 5px 12px;
   border-radius: 999px;
   background: var(--chip-bg);
@@ -457,6 +458,8 @@ section { position: relative; }
   gap: 56px;
   align-items: center;
 }
+.card-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
 .detail-visual {
   border-radius: var(--radius);
   background:
@@ -466,7 +469,9 @@ section { position: relative; }
   aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
+.detail-visual img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .detail-copy h1 { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 10px; }
 .detail-copy .tag { color: var(--accent); font-weight: 600; margin-bottom: 16px; display: block; }
 .detail-copy > p { color: var(--text-dim); margin-bottom: 28px; max-width: 520px; }

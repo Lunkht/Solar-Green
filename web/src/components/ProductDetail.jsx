@@ -12,7 +12,7 @@ export default function ProductDetail({ toast }) {
     <main className="detail">
       <div className="container detail-grid">
         <Reveal className="detail-visual" style={{ ['--swatch']: p.swatch }}>
-          <SolarScene variant={p.hero} swatch={p.swatch} />
+          {p.image ? <img src={p.image} alt={p.name} /> : <SolarScene variant={p.hero} swatch={p.swatch} />}
         </Reveal>
 
         <Reveal delay={1} className="detail-copy">

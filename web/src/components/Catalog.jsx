@@ -21,7 +21,7 @@ export default function Catalog() {
             <Reveal key={p.id} delay={i % 3} className="card" style={{ ['--swatch']: p.swatch }}>
               <Link to={`/produit/${p.id}`} className="card-visual">
                 <span className="type-chip">{p.type}</span>
-                <SolarScene variant={p.hero} swatch={p.swatch} />
+                {p.image ? <img src={p.image} alt={p.name} loading="lazy" /> : <SolarScene variant={p.hero} swatch={p.swatch} />}
               </Link>
               <div className="card-body">
                 <h3>
