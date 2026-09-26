@@ -434,6 +434,7 @@ section { position: relative; }
   position: relative;
 }
 .row-media .big-solar { width: 70%; height: auto; }
+.row-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .row-copy h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 16px; }
 .row-copy p { color: var(--text-dim); margin-bottom: 24px; max-width: 480px; }
 .row-copy ul { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }

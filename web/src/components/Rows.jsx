@@ -15,6 +15,7 @@ const rows = [
     points: ['Étude technique gratuite de votre site', 'Installation en 2 à 4 jours (Conakry)', 'Formation de votre opérateur'],
     variant: 'kit',
     swatch: 'hsl(20 90% 55%)',
+    image: '/installation-guinea.png',
   },
   {
     title: 'Une énergie pilotable, même au téléphone',
@@ -22,6 +23,7 @@ const rows = [
     points: ['Application mobile de suivi', 'Alertes et historique de production', 'Mise à jour du firmware à distance'],
     variant: 'inverter',
     swatch: 'hsl(160 70% 45%)',
+    image: '/control-interface.png',
   },
 ]
 
@@ -32,7 +34,7 @@ export default function Rows() {
         {rows.map((r, i) => (
           <Reveal key={r.title} className={`row ${i % 2 === 1 ? 'reverse' : ''}`}>
             <div className="row-media" style={{ ['--swatch']: r.swatch }}>
-              <SolarScene variant={r.variant} swatch={r.swatch} className="big-solar" />
+              {r.image ? <img src={r.image} alt={r.title} loading="lazy" /> : <SolarScene variant={r.variant} swatch={r.swatch} className="big-solar" />}
             </div>
             <div className="row-copy">
               <h3>{r.title}</h3>
