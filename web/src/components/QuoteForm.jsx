@@ -39,7 +39,7 @@ export default function QuoteForm({ toast }) {
         message: '',
       })
     } catch (err) {
-      toast('⚠ Envoi impossible pour l’instant. Appelez-nous au +224 621 00 00 00.')
+      toast('⚠ Envoi impossible pour l’instant. Appelez-nous au +224 614 65 87 17.')
     } finally {
       setSending(false)
     }
@@ -68,13 +68,13 @@ export default function QuoteForm({ toast }) {
             <span className="ic">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>
             </span>
-            <div><b>+224 621 00 00 00</b><span>WhatsApp 7j/7 de 8h à 20h</span></div>
+            <div><b>+224 614 65 87 17</b><span>WhatsApp 7j/7 de 8h à 20h</span></div>
           </div>
           <div className="contact-item">
             <span className="ic">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.6"/></svg>
             </span>
-            <div><b>Quartier Kaloum, B52 Route du Niger</b><span>Conakry — République de Guinée</span></div>
+            <div><b>L50 Route Prince Lambanyi</b><span>Conakry — République de Guinée</span></div>
           </div>
         </Reveal>
 

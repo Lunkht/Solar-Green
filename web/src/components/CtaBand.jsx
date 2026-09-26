@@ -17,7 +17,7 @@ export default function CtaBand() {
       <Reveal delay={2}>
         <div className="hero-actions">
           <a href="#devis" className="btn btn-primary">Demander un devis</a>
-          <a href="tel:+224621000000" className="btn btn-outline">Appeler maintenant</a>
+          <a href="tel:+224614658717" className="btn btn-outline">Appeler maintenant</a>
         </div>
       </Reveal>
     </section>

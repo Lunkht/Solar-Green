@@ -4,8 +4,8 @@ const items = [
   { b: 'Garantie', t: 'jusqu’à 25 ans' },
   { b: 'Livraison', t: 'Conakry & 33 préfectures' },
   { b: 'Mobile Money', t: 'Orange', extra: ' · MTN · OMA' },
-  { b: '+224 621 00 00 00', t: 'support 7j/7' },
-  { b: 'B52, Route du Niger', t: 'Conakry, Kaloum' },
+  { b: '+224 614 65 87 17', t: 'support 7j/7' },
+  { b: 'L50, Route Prince Lambanyi', t: 'Conakry' },
   { b: 'Maintien à distance', t: 'suivi via app mobile' },
 ]
 

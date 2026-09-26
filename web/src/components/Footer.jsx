@@ -29,9 +29,9 @@ export default function Footer() {
           <div>
             <h4>Contact</h4>
             <div className="footer-col">
-              <a href="tel:+224621000000">+224 621 00 00 00</a>
+              <a href="tel:+224614658717">+224 614 65 87 17</a>
               <a href="mailto:contact@solargreen.com">contact@solargreen.com</a>
-              <span>B52 Route du Niger, Kaloum<br />Conakry — Guinée</span>
+              <span>L50 Route Prince Lambanyi<br />Conakry — Guinée</span>
             </div>
           </div>
 
@@ -48,7 +48,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Solar Green S.A. — Tous droits réservés.</span>
-          <span>Fait avec ⚡ en Guinée 🇬🇳</span>
+          <span>Fait avec iBilium,inc en Guinée</span>
         </div>
       </div>
     </footer>
