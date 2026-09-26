@@ -1,6 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0a0a09" stroke="rgba(255,255,255,0.12)"/>
-  <circle cx="32" cy="32" r="20.15" fill="#1B1400"/>
-  <path d="M19 41.5h26M21.3 41.5l4.7-13M42.7 41.5l-4.7-13M27.3 28.4h9.5M30.8 28.4l3.6 13" stroke="#EEF800" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M23.7 16.6v4.2M32 16.6v4.2M40.3 16.6v4.2" stroke="#EEF800" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #80b918;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M81.3,113.18c-5.73,0-10.37-4.64-10.37-10.37s4.64-10.37,10.37-10.37h72.08c.68-4.06,1.12-8.19,1.12-12.44s-.44-8.39-1.12-12.44h-72.08c-5.73,0-10.37-4.64-10.37-10.37s4.64-10.37,10.37-10.37h65.33C134.42,22.35,109.21,5.5,80,5.5,38.85,5.5,5.5,38.85,5.5,80s33.35,74.5,74.5,74.5c29.21,0,54.42-16.85,66.63-41.32h-65.33Z"/>
 </svg>
