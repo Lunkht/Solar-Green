@@ -156,6 +156,9 @@ section { position: relative; }
 .logo-badge .lb-border { stroke: var(--logo-border); transition: stroke 0.4s ease; }
 .logo-badge .lb-disc { fill: var(--logo-disc); transition: fill 0.4s ease; }
 .logo-badge .lb-fg { stroke: var(--logo-fg); transition: stroke 0.4s ease; }
+.logo-black { display: none; }
+html[data-theme="light"] .logo-black { display: inline-block; }
+html[data-theme="light"] .logo-white { display: none; }
 .nav-links { display: flex; gap: 26px; }
 .nav-links a {
   font-size: 0.82rem;
