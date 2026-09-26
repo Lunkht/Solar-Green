@@ -70,6 +70,7 @@ export const products = [
     type: 'Batterie',
     name: 'Batterie Solaire 10 kWh',
     category: 'Batteries',
+    image: '/battery.png',
     price: '19 500 000 GNF',
     priceEur: '≈ 2 250 EUR',
     tagline: 'De l’énergie, même quand le soleil se couche.',
@@ -129,6 +130,28 @@ export const products = [
     ],
     swatch: 'hsl(190 80% 50%)',
     hero: 'pump',
+  },
+  {
+    id: 'cable-solaire',
+    type: 'Accessoire',
+    name: 'Câble Solaire H1Z2Z2-K',
+    category: 'Câbles & accessoires',
+    image: '/cables.png',
+    price: '15 000 GNF / m',
+    priceEur: '≈ 1,75 EUR / m',
+    tagline: 'Une connexion fiable, sec et étanche.',
+    description:
+      'Câble solaire photovoltaïque certifié TÜV, idéal pour raccorder panneaux, onduleurs et batteries. Double isolation, résistant aux UV et aux intempéries.',
+    specs: [
+      { label: 'Section', value: '4 · 6 · 10 mm²' },
+      { label: 'Isolation', value: 'XLPE double' },
+      { label: 'Température', value: '-40 à +120 °C' },
+      { label: 'Tension', value: '1,5 kV DC' },
+      { label: 'Norme', value: 'EN 50618 (TÜV)' },
+      { label: 'Garantie', value: '25 ans' },
+    ],
+    swatch: 'hsl(35 85% 50%)',
+    hero: 'kit',
   },
 ]
 

@@ -8,6 +8,7 @@ const rows = [
     points: ['Contrôle qualité au débarquement', 'Documents douaniers et factures conformes', 'Suivi de commande en temps réel'],
     variant: '550w',
     swatch: 'hsl(42 100% 55%)',
+    image: '/factory.png',
   },
   {
     title: 'Une installation pensée pour la Guinée',
