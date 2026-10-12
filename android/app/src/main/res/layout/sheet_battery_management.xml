@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_dark"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/card_stroke"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/battery_half"
+            app:tint="@color/accent"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gestion de la Batterie"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Solar Battery Pro 10 kWh (LiFePO4)"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Battery Big Status Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_card_interactive"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Niveau de Charge"
+                android:textColor="@color/text_dim"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tv_battery_percent_sheet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="72% (7.2 kWh)"
+                android:textColor="@color/accent"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/pb_battery_sheet"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="12dp"
+            android:max="100"
+            android:progress="72"
+            android:progressDrawable="@drawable/bg_chip_green" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Santé" android:textColor="@color/text_dim" android:textSize="11sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="98% (Excellente)" android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Température" android:textColor="@color/text_dim" android:textSize="11sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="28.4 °C" android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cycles" android:textColor="@color/text_dim" android:textSize="11sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="142 / 6000" android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Threshold Slider -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réserve minimale de secours (DoD)"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_reserve_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conserver au moins 20% de batterie"
+        android:textColor="@color/text_dim"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"/>
+
+    <SeekBar
+        android:id="@+id/seekbar_reserve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:max="50"
+        android:progress="20"
+        android:thumbTint="@color/accent"
+        android:progressTint="@color/accent"/>
+
+</LinearLayout>

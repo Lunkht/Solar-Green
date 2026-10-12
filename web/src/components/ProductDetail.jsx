@@ -24,7 +24,6 @@ export default function ProductDetail({ toast }) {
 
 <div className="price-box">
             <span className="now">{p.price}</span>
-            {p.priceEur && <span className="eur">{p.priceEur}</span>}
           </div>
 
           <ul className="spec-list">

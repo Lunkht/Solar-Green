@@ -6,7 +6,6 @@ export const products = [
     category: 'Panneaux solaires',
     image: '/panel-550w.png',
     price: '3 250 000 GNF',
-    priceEur: '≈ 375 EUR',
     tagline: 'Le meilleur rendement du marché.',
     description:
       'Panneau monocristallin haute efficacité (PERC) de 550W, idéal pour les toits de Conakry comme pour les sites ruraux. Garanti 25 ans.',
@@ -28,7 +27,6 @@ export const products = [
     category: 'Panneaux solaires',
     image: '/panel-450w.png',
     price: '2 750 000 GNF',
-    priceEur: '≈ 320 EUR',
     tagline: 'Polyvalent, compact et fiable.',
     description:
       'Panneau monocristallin 450W au format réduit, parfait pour les installations résidentielles et les pompes solaires. Forte tolérance à la chaleur.',
@@ -50,7 +48,6 @@ export const products = [
     category: 'Onduleurs',
     image: '/inverter-5KW.png',
     price: '6 900 000 GNF',
-    priceEur: '≈ 800 EUR',
     tagline: 'Pilotez votre énergie en temps réel.',
     description:
       'Onduleur hybride triphasé avec gestion intelligente de la batterie, priorisation des charges et application mobile. Compatible tous réseaux EGB.',
@@ -72,7 +69,6 @@ export const products = [
     category: 'Batteries',
     image: '/battery.png',
     price: '19 500 000 GNF',
-    priceEur: '≈ 2 250 EUR',
     tagline: 'De l’énergie, même quand le soleil se couche.',
     description:
       'Batterie au lithium fer phosphate (LiFePO4) haute densité, 6 000 cycles, borniers étanches. Idéale pour le stockage résidentiel et professionnel.',
@@ -94,7 +90,6 @@ export const products = [
     category: 'Kits complets',
     image: '/Kit Maison Premium.png',
     price: 'Sur devis',
-    priceEur: '',
     tagline: 'Une maison autonome, clé en main.',
     description:
       'Kit complet 5 kW : 8 panneaux 550W, onduleur hybride 5kW, batterie 10 kWh, disjoncteurs et câbles. Pose et mise en service incluses à Conakry.',
@@ -116,7 +111,6 @@ export const products = [
     category: 'Solaire agricole',
     image: '/Solar Borehole Pump.png',
     price: 'Sur devis',
-    priceEur: '',
     tagline: 'De l’eau où il y a du soleil.',
     description:
       'Système de pompage solaire submersible 2,2 kW capable de remonter 30 m³/jour. Conçu pour les villages éloignés du réseau EGB.',
@@ -138,7 +132,6 @@ export const products = [
     category: 'Câbles & accessoires',
     image: '/cables.png',
     price: '15 000 GNF / m',
-    priceEur: '≈ 1,75 EUR / m',
     tagline: 'Une connexion fiable, sec et étanche.',
     description:
       'Câble solaire photovoltaïque certifié TÜV, idéal pour raccorder panneaux, onduleurs et batteries. Double isolation, résistant aux UV et aux intempéries.',

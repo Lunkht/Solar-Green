@@ -44,7 +44,7 @@ public class ProductRepository {
                         o.getString("type"),
                         o.getString("category"),
                         o.optString("price"),
-                        o.optString("priceEur"),
+                        o.optString("priceCfa"),
                         o.getString("tagline"),
                         o.getString("description"),
                         o.optString("imageUrl", "https://images.unsplash.com/photo-1509391366360-fe5bb584850a?q=80&w=500"),

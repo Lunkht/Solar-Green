@@ -1,312 +1,693 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg">
+    android:background="@color/bg"
+    android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <!-- Top Action Bar Header -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bg"
-        app:elevation="0dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
 
+        <ImageView
+            android:id="@+id/btn_drawer_menu"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_menu"
+            android:background="@drawable/drawer_menu"
+            app:tint="@color/text_primary"
+            android:clickable="true"
+            android:padding="2dp"
+            android:focusable="true"/>
+
+        <!-- Center Title / Logo -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <!-- Header: Location & Icons -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_pin"
-                        app:tint="@color/accent" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Conakry, Guinée"
-                            android:textColor="@color/text_primary"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dixinn, 224"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/headset"
-                        app:tint="@color/text_primary"
-                        android:layout_marginEnd="16dp"/>
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_settings"
-                        app:tint="@color/text_primary" />
-                </LinearLayout>
-            </RelativeLayout>
-
-            <!-- Search Bar -->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_input"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@android:drawable/ic_menu_search"
-                    app:tint="@color/text_dim" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="12dp"
-                    android:text="Rechercher un produit ou service..."
-                    android:textColor="@color/text_dim"
-                    android:textSize="14sp" />
+                    android:text="Solar"
+                    android:textColor="@color/text_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Green"
+                    android:textColor="@color/accent"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="2dp"/>
             </LinearLayout>
+
         </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Right Status Badge & Settings -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/status_badge_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip_green"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="12dp">
+
+                <View
+                    android:id="@+id/status_dot"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_status_online"/>
+
+                <TextView
+                    android:id="@+id/tv_status_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="En ligne"
+                    android:textColor="@color/accent"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="6dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btn_header_account"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_user"
+                app:tint="@color/text_primary"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:fillViewport="true"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="32dp">
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="24dp">
 
-            <!-- Hero Banner -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp">
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/hero_viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </androidx.cardview.widget.CardView>
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/hero_indicator"
+            <!-- Section 1: Top 2 Cards Row -->
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="12dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:background="@android:color/transparent"
-                app:tabBackground="@drawable/dot_selector"
-                app:tabGravity="center"
-                app:tabIndicatorHeight="0dp"
-                app:tabMaxWidth="12dp"
-                app:tabMinWidth="12dp"
-                app:tabPaddingStart="4dp"
-                app:tabPaddingEnd="4dp"
-                app:tabRippleColor="@null" />
-
-            <!-- Service Categories -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/cat_panneaux"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <ImageView android:layout_width="56dp" android:layout_height="56dp" android:background="@drawable/bg_category_icon" android:src="@drawable/ic_sun_large" android:padding="12dp" app:tint="@color/accent" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Panneaux" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_primary"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cat_onduleurs"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <ImageView android:layout_width="56dp" android:layout_height="56dp" android:background="@drawable/bg_category_icon" android:src="@drawable/ic_flash" android:padding="12dp" app:tint="@color/accent" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Onduleurs" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_primary"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cat_batteries"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <ImageView android:layout_width="56dp" android:layout_height="56dp" android:background="@drawable/bg_category_icon" android:src="@drawable/ic_battery" android:padding="12dp" app:tint="@color/accent" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Batteries" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_primary"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cat_services"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <ImageView android:layout_width="56dp" android:layout_height="56dp" android:background="@drawable/bg_category_icon" android:src="@drawable/ic_build" android:padding="12dp" app:tint="@color/accent" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Services" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_primary"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cat_accessoires"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <ImageView android:layout_width="56dp" android:layout_height="56dp" android:background="@drawable/bg_category_icon" android:src="@drawable/ic_settings" android:padding="12dp" app:tint="@color/accent" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Accessoires" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_primary"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <!-- Recommended Section -->
+                android:text="ÉNERGIE SOLAIRE POUR UN MEILLEUR AVENIR"
+                android:textColor="@color/text_dim"
+                android:textSize="8sp"
+                android:layout_margin="8dp"
+                android:letterSpacing="0.05"
+                android:textStyle="bold"/>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:layout_height="250dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Recommandé pour vous"
-                    android:textColor="@color/text_primary"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                <io.github.sceneview.SceneView
+                    android:id="@+id/sceneView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-                <TextView
-                    android:id="@+id/see_all_recommended"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="Voir tout >"
-                    android:textColor="@color/accent"
-                    android:textSize="14sp"
-                    android:clickable="true"
-                    android:focusable="true" />
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_recommended"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:clipToPadding="false"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp" />
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                android:padding="9dp"
+                android:orientation="horizontal">
 
-            <!-- Membership Banner (Membership Card) -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp">
-
+                <!-- Left Card: Circular Meter -->
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_membership_gradient"
-                    android:orientation="horizontal"
-                    android:padding="20dp"
+                    android:id="@+id/card_gauge"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_card_interactive"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <com.solargreen.app.ui.custom.CircularGaugeView
+                        android:id="@+id/circular_gauge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <!-- Right Card: Real-time Production Summary -->
+                <LinearLayout
+                    android:id="@+id/card_overview"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_card_interactive"
+                    android:orientation="vertical"
+                    android:padding="12dp"
                     android:gravity="center_vertical">
 
+                    <!-- Row 1: Production Solaire -->
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:background="@drawable/bg_chip_green"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_sun"
+                            app:tint="@color/accent" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Production solaire"
+                                android:textColor="@color/text_dim"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tv_val_solar_prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5.2 kW"
+                                android:textColor="@color/text_primary"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/card_stroke" />
+
+                    <!-- Row 2: Batterie -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:background="@drawable/bg_chip_green"
+                            android:padding="5dp"
+                            android:src="@drawable/battery_half"
+                            app:tint="@color/accent" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Batterie"
+                                android:textColor="@color/text_dim"
+                                android:textSize="11sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_val_battery_percent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="72%"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_val_battery_kwh"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=" (7.2 kWh)"
+                                    android:textColor="@color/text_dim"
+                                    android:textSize="10sp"
+                                    android:layout_marginStart="2dp"
+                                    android:layout_marginBottom="1dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/card_stroke" />
+
+                    <!-- Row 3: Consommation maison -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:background="@drawable/bg_chip_green"
+                            android:padding="5dp"
+                            android:src="@drawable/house_blank"
+                            app:tint="@color/accent" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Consommation maison"
+                                android:textColor="@color/text_dim"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tv_val_home_conso"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2.4 kW"
+                                android:textColor="@color/text_primary"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 2: Production Solar Chart Card -->
+            <LinearLayout
+                android:id="@+id/card_chart_production"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card_interactive"
+                android:orientation="vertical"
+                android:layout_margin="9dp"
+                android:padding="14dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_history"
+                            app:tint="@color/accent" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Solar Green Plus Membership"
-                            android:textColor="@color/white"
+                            android:layout_marginStart="8dp"
+                            android:text="Production solaire (aujourd'hui)"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_val_today_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="12.6 kWh"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <com.solargreen.app.ui.custom.SolarProductionChartView
+                    android:id="@+id/chart_production"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- Section 3: Operating Mode Card -->
+            <LinearLayout
+                android:id="@+id/card_operating_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="9dp"
+                android:background="@drawable/bg_card_interactive"
+                android:orientation="horizontal"
+                android:padding="14dp"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_chip_green"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_leaf"
+                    app:tint="@color/accent" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mode de fonctionnement"
+                        android:textColor="@color/text_dim"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="2dp">
+
+                        <TextView
+                            android:id="@+id/tv_operating_mode_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Autonome"
+                            android:textColor="@color/text_primary"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tv_operating_mode_badge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="10% OFF sur votre prochaine installation"
-                            android:textColor="#E0E0E0"
-                            android:textSize="12sp"
-                            android:layout_marginTop="4dp" />
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/bg_badge_green"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:text="Normal"
+                            android:textColor="@color/accent"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
+                </LinearLayout>
 
-                    <androidx.appcompat.widget.AppCompatButton
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_chevron_right"
+                    app:tint="@color/text_dim" />
+            </LinearLayout>
+
+            <!-- Section 4: Grid of 6 Action / Pilotage Buttons -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="9dp"
+                android:columnCount="3"
+                android:rowCount="2">
+
+                <!-- Button 1: Power Toggle -->
+                <LinearLayout
+                    android:id="@+id/btn_action_power"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_card_interactive"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/iv_power_icon"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_power"
+                        app:tint="@color/accent" />
+
+                    <TextView
+                        android:id="@+id/tv_power_btn_label"
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:background="@drawable/bg_button_white"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="Rejoindre"
-                        android:textAllCaps="false"
-                        android:textColor="@color/accent"
-                        android:textSize="12sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Allumer\nle système"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
                         android:textStyle="bold" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+
+                <!-- Button 2: Battery Management -->
+                <LinearLayout
+                    android:id="@+id/btn_action_battery"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_card_interactive"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/car_battery"
+                        app:tint="@color/accent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Gestion\nbatterie"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Button 3: Home Energy -->
+                <LinearLayout
+                    android:id="@+id/btn_action_home_energy"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_card_interactive"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/house_blank"
+                        app:tint="@color/accent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Domicile\nénergie"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Button 4: History -->
+                <LinearLayout
+                    android:id="@+id/btn_action_history"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_card_interactive"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/chart_histogram"
+                        app:tint="@color/accent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Historique"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Button 5: Notifications -->
+                <RelativeLayout
+                    android:id="@+id/btn_action_notifications"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_card_interactive"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="0dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="6dp">
+
+                            <ImageView
+                                android:id="@+id/iv_bell_icon"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="bottom|start"
+                                android:src="@drawable/ic_bell"
+                                app:tint="@color/accent" />
+
+                            <TextView
+                                android:id="@+id/tv_notif_badge_count"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="top|end"
+                                android:background="@drawable/bg_badge_red"
+                                android:gravity="center"
+                                android:text="3"
+                                android:textColor="@color/white"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="Notifications"
+                            android:textColor="@color/text_primary"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- Button 6: Parameters -->
+                <LinearLayout
+                    android:id="@+id/btn_action_settings"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_card_interactive"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_settings"
+                        app:tint="@color/accent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Paramètres"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </GridLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

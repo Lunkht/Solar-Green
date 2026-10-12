@@ -19,7 +19,16 @@ public class ApplianceRepository {
     public static List<Appliance> getAppliances(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         String json = prefs.getString(KEY_APPLIANCES, null);
-        if (json == null) return new ArrayList<>();
+        if (json == null) {
+            List<Appliance> defaults = new ArrayList<>();
+            defaults.add(new Appliance("Climatiseur Inverter", 1, 1200, "LG / Samsung"));
+            defaults.add(new Appliance("Réfrigérateur / Congélateur", 1, 250, "Haier"));
+            defaults.add(new Appliance("Éclairage LED Maison", 12, 15, "Philips"));
+            defaults.add(new Appliance("Téléviseur 55\" 4K", 1, 150, "Sony"));
+            defaults.add(new Appliance("Pompe Solaire Forage", 1, 750, "SolarGreen"));
+            saveAppliances(context, defaults);
+            return defaults;
+        }
 
         Type type = new TypeToken<ArrayList<Appliance>>() {}.getType();
         return gson.fromJson(json, type);

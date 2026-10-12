@@ -1,38 +1,47 @@
 package com.solargreen.app.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 
+import com.bumptech.glide.Glide;
+import com.google.android.filament.gltfio.FilamentInstance;
 import com.solargreen.app.MainActivity;
 import com.solargreen.app.R;
-import com.solargreen.app.data.ProductRepository;
-import com.solargreen.app.models.Product;
-import com.solargreen.app.ui.catalog.CategoryActivity;
-import com.solargreen.app.ui.catalog.ProductDetailActivity;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
+import com.solargreen.app.data.SystemStateRepository;
+import com.solargreen.app.ui.custom.CircularGaugeView;
+import com.solargreen.app.ui.dialogs.BatteryManagementBottomSheet;
+import com.solargreen.app.ui.dialogs.ModeSelectionBottomSheet;
+import com.solargreen.app.ui.dialogs.NotificationsBottomSheet;
 
-import java.util.ArrayList;
-import java.util.List;
+import io.github.sceneview.SceneView;
+import io.github.sceneview.node.ModelNode;
 
-public class HomeFragment extends Fragment implements HeroAdapter.OnHeroClickListener {
+public class HomeFragment extends Fragment implements SystemStateRepository.StateChangeListener {
 
-    private ViewPager2 viewPager;
-    private RecyclerView rvRecommended;
-    private Handler autoScrollHandler = new Handler(Looper.getMainLooper());
-    private Runnable autoScrollRunnable;
+    private CircularGaugeView circularGauge;
+    private TextView tvStatusText;
+    private View statusDot;
+    private TextView tvValSolarProd;
+    private TextView tvValBatteryPercent;
+    private TextView tvValBatteryKwh;
+    private TextView tvValHomeConso;
+    private TextView tvValTodayTotal;
+    private TextView tvOperatingModeTitle;
+    private TextView tvOperatingModeBadge;
+
+    private TextView tvPowerBtnLabel;
+    private ImageView ivPowerIcon;
+    private TextView tvNotifBadgeCount;
 
     @Nullable
     @Override
@@ -44,95 +53,161 @@ public class HomeFragment extends Fragment implements HeroAdapter.OnHeroClickLis
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        setupHeroPager(view);
-        setupRecommendedList(view);
-        setupCategoryListeners(view);
+        super.onViewCreated(view, savedInstanceState);
+
+        circularGauge = view.findViewById(R.id.circular_gauge);
+        tvStatusText = view.findViewById(R.id.tv_status_text);
+        statusDot = view.findViewById(R.id.status_dot);
+        tvValSolarProd = view.findViewById(R.id.tv_val_solar_prod);
+        tvValBatteryPercent = view.findViewById(R.id.tv_val_battery_percent);
+        tvValBatteryKwh = view.findViewById(R.id.tv_val_battery_kwh);
+        tvValHomeConso = view.findViewById(R.id.tv_val_home_conso);
+        tvValTodayTotal = view.findViewById(R.id.tv_val_today_total);
+        tvOperatingModeTitle = view.findViewById(R.id.tv_operating_mode_title);
+        tvOperatingModeBadge = view.findViewById(R.id.tv_operating_mode_badge);
+
+        tvPowerBtnLabel = view.findViewById(R.id.tv_power_btn_label);
+        ivPowerIcon = view.findViewById(R.id.iv_power_icon);
+        tvNotifBadgeCount = view.findViewById(R.id.tv_notif_badge_count);
+
+        SceneView sceneView = view.findViewById(R.id.sceneView);
+        if (sceneView != null) {
+            SceneViewLoader.loadHouseModel(requireContext(), sceneView);
+        }
+
+        setupClickListeners(view);
+        SystemStateRepository.getInstance().addListener(this);
+        updateUiFromState();
+        animateEntrance(view);
     }
 
-    private void setupCategoryListeners(View view) {
-        view.findViewById(R.id.cat_panneaux).setOnClickListener(v -> openCategory("Panneaux"));
-        view.findViewById(R.id.cat_onduleurs).setOnClickListener(v -> openCategory("Onduleurs"));
-        view.findViewById(R.id.cat_batteries).setOnClickListener(v -> openCategory("Batteries"));
-        view.findViewById(R.id.cat_services).setOnClickListener(v -> openCategory("Services"));
-        view.findViewById(R.id.cat_accessoires).setOnClickListener(v -> openCategory("Accessoires"));
-        
-        view.findViewById(R.id.see_all_recommended).setOnClickListener(v -> {
+    private void animateEntrance(View rootView) {
+        View cardGauge = rootView.findViewById(R.id.card_gauge);
+        View cardOverview = rootView.findViewById(R.id.card_overview);
+        View cardChart = rootView.findViewById(R.id.card_chart_production);
+        View cardMode = rootView.findViewById(R.id.card_operating_mode);
+
+        View[] views = new View[]{cardGauge, cardOverview, cardChart, cardMode};
+        for (int i = 0; i < views.length; i++) {
+            View v = views[i];
+            if (v != null) {
+                v.setAlpha(0f);
+                v.setTranslationY(30f);
+                v.animate()
+                        .alpha(1f)
+                        .translationY(0f)
+                        .setDuration(450)
+                        .setStartDelay(i * 70L)
+                        .setInterpolator(new DecelerateInterpolator())
+                        .start();
+            }
+        }
+    }
+
+    private void setupClickListeners(View view) {
+        // Drawer Menu Button
+        view.findViewById(R.id.btn_drawer_menu).setOnClickListener(v -> {
             if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).goToTab(R.id.nav_catalog);
+                ((MainActivity) getActivity()).openDrawer();
+            }
+        });
+
+        // Mode Card -> BottomSheet
+        view.findViewById(R.id.card_operating_mode).setOnClickListener(v -> {
+            new ModeSelectionBottomSheet().show(getParentFragmentManager(), "mode_sheet");
+        });
+
+        // Power Toggle Button
+        view.findViewById(R.id.btn_action_power).setOnClickListener(v -> {
+            SystemStateRepository.getInstance().toggleSystemPower();
+            boolean isOn = SystemStateRepository.getInstance().isSystemOn();
+            Toast.makeText(getContext(),
+                    isOn ? "Démarrage du système de production..." : "Mise en veille du système...",
+                    Toast.LENGTH_SHORT).show();
+        });
+
+        // Battery Button -> BottomSheet
+        view.findViewById(R.id.btn_action_battery).setOnClickListener(v -> {
+            new BatteryManagementBottomSheet().show(getParentFragmentManager(), "battery_sheet");
+        });
+
+        // Home Energy Button -> Switch to Devices Tab
+        view.findViewById(R.id.btn_action_home_energy).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).goToTab(R.id.nav_devices);
+            }
+        });
+
+        // History Button -> Switch to Stats Tab
+        view.findViewById(R.id.btn_action_history).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).goToTab(R.id.nav_stats);
+            }
+        });
+
+        // Notifications Button -> BottomSheet
+        view.findViewById(R.id.btn_action_notifications).setOnClickListener(v -> {
+            new NotificationsBottomSheet().show(getParentFragmentManager(), "notif_sheet");
+        });
+
+        // Settings Button -> Switch to Settings Fragment
+        view.findViewById(R.id.btn_action_settings).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).openSettings();
+            }
+        });
+
+        view.findViewById(R.id.btn_header_account).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).openAccount();
             }
         });
     }
 
-    private void openCategory(String category) {
-        Intent intent = new Intent(getContext(), CategoryActivity.class);
-        intent.putExtra(CategoryActivity.EXTRA_CATEGORY, category);
-        startActivity(intent);
-    }
+    private void updateUiFromState() {
+        if (!isAdded()) return;
 
-    private void setupRecommendedList(View view) {
-        rvRecommended = view.findViewById(R.id.rv_recommended);
-        rvRecommended.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        
-        List<Product> products = ProductRepository.load(requireContext());
-        ProductHomeAdapter adapter = new ProductHomeAdapter(products, requireContext());
-        rvRecommended.setAdapter(adapter);
-    }
+        SystemStateRepository repo = SystemStateRepository.getInstance();
 
-    private void setupHeroPager(View view) {
-        viewPager = view.findViewById(R.id.hero_viewpager);
-        TabLayout tabLayout = view.findViewById(R.id.hero_indicator);
+        tvStatusText.setText(repo.getStatusText());
+        tvValSolarProd.setText(String.format("%.1f kW", repo.getSolarProductionKw()));
+        tvValBatteryPercent.setText(String.format("%.0f%%", repo.getBatteryPercent()));
+        tvValBatteryKwh.setText(String.format(" (%.1f kWh)", repo.getBatteryKwh()));
+        tvValHomeConso.setText(String.format("%.1f kW", repo.getHomeConsumptionKw()));
+        tvValTodayTotal.setText(String.format("%.1f kWh", repo.getTodayTotalKwh()));
 
-        List<Product> allProducts = ProductRepository.load(requireContext());
-        List<Product> heroProducts = new ArrayList<>();
-        
-        // Pick top 4 products for hero
-        for (int i = 0; i < Math.min(4, allProducts.size()); i++) {
-            heroProducts.add(allProducts.get(i));
+        tvOperatingModeTitle.setText(repo.getOperatingMode());
+        tvOperatingModeBadge.setText(repo.getOperatingModeSub());
+
+        circularGauge.setPower(repo.getCurrentPowerKw(), 6.0f);
+
+        if (repo.isSystemOn()) {
+            tvPowerBtnLabel.setText("Éteindre\nle système");
+            ivPowerIcon.setAlpha(1.0f);
+        } else {
+            tvPowerBtnLabel.setText("Allumer\nle système");
+            ivPowerIcon.setAlpha(0.4f);
         }
 
-        HeroAdapter adapter = new HeroAdapter(heroProducts, this);
-        viewPager.setAdapter(adapter);
-
-        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {}).attach();
-
-        startAutoScroll(heroProducts.size());
-    }
-
-    private void startAutoScroll(int count) {
-        if (count <= 1) return;
-        
-        autoScrollRunnable = new Runnable() {
-            @Override
-            public void run() {
-                int current = viewPager.getCurrentItem();
-                int next = (current + 1) % count;
-                viewPager.setCurrentItem(next, true);
-                autoScrollHandler.postDelayed(this, 5000); // 5 seconds
-            }
-        };
-        autoScrollHandler.postDelayed(autoScrollRunnable, 5000);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (autoScrollHandler != null && autoScrollRunnable != null) {
-            autoScrollHandler.removeCallbacks(autoScrollRunnable);
+        int unread = repo.getUnreadNotificationCount();
+        if (unread > 0) {
+            tvNotifBadgeCount.setVisibility(View.VISIBLE);
+            tvNotifBadgeCount.setText(String.valueOf(unread));
+        } else {
+            tvNotifBadgeCount.setVisibility(View.GONE);
         }
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        if (viewPager != null && viewPager.getAdapter() != null) {
-            startAutoScroll(viewPager.getAdapter().getItemCount());
+    public void onStateChanged() {
+        if (getActivity() != null) {
+            getActivity().runOnUiThread(this::updateUiFromState);
         }
     }
 
     @Override
-    public void onHeroClick(Product product) {
-        Intent intent = new Intent(getContext(), ProductDetailActivity.class);
-        intent.putExtra(ProductDetailActivity.EXTRA_PRODUCT_ID, product.id);
-        startActivity(intent);
+    public void onDestroyView() {
+        super.onDestroyView();
+        SystemStateRepository.getInstance().removeListener(this);
     }
 }

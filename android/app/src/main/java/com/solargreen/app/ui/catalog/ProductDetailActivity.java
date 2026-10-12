@@ -41,7 +41,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         TextView tagline = findViewById(R.id.detail_tagline);
         TextView description = findViewById(R.id.detail_description);
         TextView price = findViewById(R.id.detail_price);
-        TextView priceEur = findViewById(R.id.detail_price_eur);
+        TextView priceCfa = findViewById(R.id.detail_price_eur);
         LinearLayout specs = findViewById(R.id.detail_specs);
 
         setTitle(p.name);
@@ -53,16 +53,17 @@ public class ProductDetailActivity extends AppCompatActivity {
         tagline.setText(p.tagline);
         description.setText(p.description);
         price.setText(p.price);
-        if (p.priceEur == null || p.priceEur.isEmpty()) {
-            priceEur.setVisibility(View.GONE);
+        if (p.priceCfa == null || p.priceCfa.isEmpty()) {
+            priceCfa.setVisibility(View.GONE);
         } else {
-            priceEur.setText(p.priceEur);
+            priceCfa.setVisibility(View.VISIBLE);
+            priceCfa.setText(p.priceCfa);
         }
 
         View quoteButton = findViewById(R.id.detail_quote);
         quoteButton.setOnClickListener(v -> {
             Intent i = new Intent(this, MainActivity.class);
-            i.putExtra(MainActivity.EXTRA_TAB, R.id.nav_quote);
+            i.putExtra(MainActivity.EXTRA_TAB, R.id.nav_devices);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(i);
         });

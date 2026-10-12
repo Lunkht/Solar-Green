@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_dark"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/card_stroke"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réglages Onduleur"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paramètres techniques de l'onduleur hybride SG-6000"
+        android:textColor="@color/text_dim"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Setting 1: Priorité Source de Sortie -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Priorité de la source de sortie (AC Output)"
+        android:textColor="@color/accent"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_priority"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/bg_input"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Setting 2: Plage de Tension AC -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plage de tension d'entrée AC"
+        android:textColor="@color/accent"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp"/>
+
+    <RadioGroup
+        android:id="@+id/rg_input_range"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/rb_range_apl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="APL (90V - 280V)"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/rb_range_ups"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="UPS (170V - 280V)"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"/>
+    </RadioGroup>
+
+    <!-- Setting 3: Courant de Charge Max -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Courant max de charge batterie"
+            android:textColor="@color/accent"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_charge_current_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="60 A"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/seek_charge_current"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="80"
+        android:progress="60"
+        android:progressTint="@color/accent"
+        android:thumbTint="@color/accent"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Setting 4: Toggles -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bip sonore d'alarme"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_buzzer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:checked="true"
+                app:thumbTint="@color/accent"
+                app:trackTint="@color/border_subtle"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/card_stroke"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mode Économie de veille (Power Saving)"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_energy_saver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:checked="false"
+                app:thumbTint="@color/accent"
+                app:trackTint="@color/border_subtle"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save_inverter_settings"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_button_primary"
+        android:text="Appliquer les réglages"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

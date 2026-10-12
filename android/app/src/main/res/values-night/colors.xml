@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Palette Dark - Thème Solar Green (Vert & Fluo) -->
-    <color name="bg">#0A0A09</color> <!-- Noir profond -->
-    <color name="bg_soft">#121211</color>
-    <color name="surface_custom">#171716</color>
+    <!-- SolarGreen Palette Dark Theme -->
+    <color name="bg">#0C0E12</color>
+    <color name="bg_soft">#121620</color>
+    <color name="surface_custom">#161B26</color>
+    <color name="card_stroke">#242C3D</color>
 
-    <color name="accent">#EEF800</color> <!-- Jaune Fluo / Electrique -->
-    <color name="accent_dark">#D4DD00</color>
-    <color name="accent_alpha">#26EEF800</color>
+    <color name="accent">#8BF200</color> <!-- Electric neon green in dark mode -->
+    <color name="accent_dark">#70C400</color>
+    <color name="accent_alpha">#268BF200</color>
+    <color name="accent_glow">#408BF200</color>
 
-    <color name="secondary_green">#80B918</color> <!-- Vert forêt -->
-    <color name="secondary_green_alpha">#2680B918</color>
+    <color name="secondary_accent">#EEF800</color>
+    <color name="secondary_green">#8BF200</color>
+    <color name="secondary_green_alpha">#1A8BF200</color>
 
-    <color name="text_primary">#FFFFFF</color>
-    <color name="text_secondary">#80B918</color>
-    <color name="text_dim">#70706F</color>
+    <color name="text_primary">#FFFFFF</color> <!-- Crisp white in dark mode -->
+    <color name="text_secondary">#8BF200</color>
+    <color name="text_dim">#8E9AA8</color> <!-- Steel grey text -->
 
-    <color name="border_subtle">#1AFFFFFF</color>
-    <color name="stroke">#26FFFFFF</color>
+    <color name="border_subtle">#242C3D</color>
+    <color name="stroke">#2D374D</color>
+    <color name="chip_green_bg">#1A8BF200</color>
 
-    <!-- Gradients Hero/Product -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red_badge">#E53935</color>
+
+    <!-- Navigation & Bottom Bar -->
+    <color name="nav_bg">#121620</color>
+
     <color name="hero_start">#151505</color>
     <color name="hero_center">#0A0A09</color>
     <color name="hero_end">#0A0A09</color>
@@ -28,11 +38,12 @@
     <color name="product_bg_center">#12120A</color>
     <color name="product_bg_end">#0A0A09</color>
 
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
-
     <!-- Logo -->
     <color name="logo_bg">#0A0A09</color>
     <color name="logo_letters">#FFFFFF</color>
-    <color name="logo_dot">#EEF800</color>
+    <color name="logo_dot">#8BF200</color>
+
+    <!-- Compatibilité -->
+    <color name="text">@color/text_primary</color>
+    <color name="card">@color/surface_custom</color>
 </resources>

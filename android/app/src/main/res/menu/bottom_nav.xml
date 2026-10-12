@@ -3,21 +3,17 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/house_blank"
-        android:title="@string/nav_home" />
+        android:title="Accueil" />
     <item
-        android:id="@+id/nav_catalog"
-        android:icon="@drawable/catalog_alt"
-        android:title="@string/nav_catalog" />
+        android:id="@+id/nav_stats"
+        android:icon="@drawable/chart_histogram"
+        android:title="Statistiques" />
     <item
-        android:id="@+id/nav_quote"
-        android:icon="@drawable/block_quote"
-        android:title="Conso" />
-    <item
-        android:id="@+id/nav_contact"
-        android:icon="@drawable/headset"
-        android:title="@string/nav_contact" />
+        android:id="@+id/nav_devices"
+        android:icon="@drawable/data_transfer"
+        android:title="Appareils" />
     <item
         android:id="@+id/nav_settings"
         android:icon="@drawable/ic_settings"
-        android:title="Réglages" />
+        android:title="Paramètres" />
 </menu>

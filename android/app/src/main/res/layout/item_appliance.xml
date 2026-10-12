@@ -1,74 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="0dp"
-    app:cardBackgroundColor="@color/surface_custom">
+    android:background="@drawable/bg_card_dark"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="8dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/appliance_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/appliance_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/appliance_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="end"
-            android:layout_marginEnd="16dp">
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/appliance_consumption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:textColor="@color/accent"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="W/h"
-                android:textColor="@color/text_dim"
-                android:textSize="10sp" />
-        </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/btn_delete"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="4dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_close"
-            app:tint="@color/text_dim" />
+        <TextView
+            android:id="@+id/appliance_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dim"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/appliance_consumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/accent"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Wh"
+        android:textColor="@color/text_dim"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_delete"
+        android:layout_marginStart="12dp" />
+
+</LinearLayout>

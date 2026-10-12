@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_dark"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="10dp">
+
+    <ImageView
+        android:id="@+id/iv_appliance_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_chip_green"
+        android:padding="8dp"
+        android:src="@drawable/house_blank"
+        app:tint="@color/accent"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_appliance_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_appliance_power"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dim"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_appliance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:thumbTint="@color/accent"
+        app:trackTint="@color/border_subtle"/>
+
+</LinearLayout>

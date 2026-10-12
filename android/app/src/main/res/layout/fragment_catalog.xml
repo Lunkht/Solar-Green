@@ -1,41 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    android:orientation="vertical">
+    android:fillViewport="true"
+    android:scrollbars="none">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingTop="22dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="6dp"
-        android:text="Catalogue"
-        android:textColor="@color/accent"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.2"
-        android:textAllCaps="true" />
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="14dp"
-        android:text="Tout ce qu’il faut pour passer au solaire"
-        android:textColor="@color/text"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <!-- Title Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:text="Catalogue"
+            android:textColor="@color/accent"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.15"
+            android:textAllCaps="true" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/product_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="10dp"
-        android:scrollbars="none" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="12dp"
+            android:text="Tout ce qu’il faut pour passer au solaire"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <!-- Hero Pager Banner -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_hero_container"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface_custom">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/hero_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Section Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="Tous nos Équipements"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Product Grid -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/product_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="24dp"
+            android:clipToPadding="false" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

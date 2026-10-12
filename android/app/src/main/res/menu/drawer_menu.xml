@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/house_blank"
+            android:title="Accueil &amp; Pilotage" />
+        <item
+            android:id="@+id/nav_catalog"
+            android:icon="@drawable/product"
+            android:title="Catalogue Produits" />
+        <item
+            android:id="@+id/nav_connection"
+            android:icon="@drawable/ic_power"
+            android:title="Connexion Onduleur" />
+        <item
+            android:id="@+id/nav_stats"
+            android:icon="@drawable/ic_history"
+            android:title="Statistiques" />
+        <item
+            android:id="@+id/nav_devices"
+            android:icon="@drawable/data_transfer"
+            android:title="Appareils &amp; Charges" />
+    </group>
+
+    <item android:title="Aide &amp; Réglages">
+        <menu>
+            <item
+                android:id="@+id/nav_contact"
+                android:icon="@drawable/ic_contact"
+                android:title="Contact &amp; Assistance" />
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="Paramètres" />
+        </menu>
+    </item>
+</menu>

@@ -1,30 +1,89 @@
 [
   {
+    "id": "batterie-10kwh",
+    "name": "Batterie Solaire LiFePO4 10 kWh",
+    "type": "Batterie",
+    "category": "Batteries",
+    "price": "19 500 000 GNF",
+    "priceCfa": "~ 1 360 000 FCFA",
+    "tagline": "Stockage d'énergie haute performance.",
+    "imageUrl": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=600",
+    "description": "Batterie Lithium LiFePO4 10 kWh avec BMS intégré (protection contre surchauffe, surcharge et décharge profonde). Écran tactile de suivi SOC et plus de 6000 cycles de durée de vie.",
+    "specs": [
+      { "label": "Capacité", "value": "10 kWh (51.2V / 200Ah)" },
+      { "label": "Tension nominale", "value": "51.2 V" },
+      { "label": "Durée de vie", "value": "+6000 cycles (80% DOD)" },
+      { "label": "Protection", "value": "BMS intelligent intégré" },
+      { "label": "Poids", "value": "≈ 95 kg" },
+      { "label": "Dimensions", "value": "600 x 450 x 250 mm" }
+    ]
+  },
+  {
+    "id": "kit-maison-premium",
+    "name": "Kit Maison Solaire Premium",
+    "type": "Kit",
+    "category": "Kits",
+    "price": "34 500 000 GNF",
+    "priceCfa": "~ 2 410 000 FCFA",
+    "tagline": "Autonomie, confort et économie.",
+    "imageUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600",
+    "description": "Solution complète pour alimenter votre maison : 4x Panneaux 450W, Onduleur hybride 5kW, Batterie LiFePO4 10 kWh et câblage complet. Idéal pour climatisation, réfrigérateur, TV et éclairage.",
+    "specs": [
+      { "label": "Onduleur", "value": "Hybride 5kW" },
+      { "label": "Batterie", "value": "LiFePO4 10 kWh" },
+      { "label": "Panneaux", "value": "450W x 4 Monocristallin" },
+      { "label": "Accessoires", "value": "Câbles + Kit de montage" }
+    ]
+  },
+  {
     "id": "panneau-550w",
-    "name": "Panneau Solaire 550W",
+    "name": "Panneau Solaire 550W Monocristallin",
     "type": "Panneau",
     "category": "Panneaux",
     "price": "3 250 000 GNF",
-    "tagline": "Le meilleur rendement du marché.",
+    "priceCfa": "~ 227 000 FCFA",
+    "tagline": "Haute performance & coins renforcés.",
     "imageUrl": "https://images.unsplash.com/photo-1509391366360-fe5bb584850a?q=80&w=600",
-    "description": "Panneau monocristallin haute efficacité (PERC) de 550W. Garanti 25 ans.",
+    "description": "Panneau solaire monocristallin 550W haute efficacité avec cadre en aluminium renforcé SolarGreen, boîtier de jonction étanche IP67 et garantie 25 ans.",
     "specs": [
       { "label": "Puissance", "value": "550 Wc" },
+      { "label": "Technologie", "value": "Monocristallin PERC" },
+      { "label": "Boîtier", "value": "IP67 Étanche" },
       { "label": "Garantie", "value": "25 ans" }
     ]
   },
   {
     "id": "panneau-450w",
-    "name": "Panneau Solaire 450W",
+    "name": "Panneau Solaire 450W Monocristallin",
     "type": "Panneau",
     "category": "Panneaux",
     "price": "2 750 000 GNF",
-    "tagline": "Polyvalent, compact et fiable.",
+    "priceCfa": "~ 192 000 FCFA",
+    "tagline": "Polyvalent, compact et haute durabilité.",
     "imageUrl": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=600",
-    "description": "Panneau monocristallin 450W au format réduit.",
+    "description": "Panneau monocristallin 450W robuste avec cadre aluminium et boîtier IP67. Excellent rendement pour toitures résidentielles et commerciales.",
     "specs": [
       { "label": "Puissance", "value": "450 Wc" },
+      { "label": "Technologie", "value": "Monocristallin" },
+      { "label": "Boîtier", "value": "IP67" },
       { "label": "Garantie", "value": "25 ans" }
+    ]
+  },
+  {
+    "id": "pompe-solaire-forage",
+    "name": "Pompe Solaire de Forage MPPT",
+    "type": "Pompe",
+    "category": "Pompes",
+    "price": "8 500 000 GNF",
+    "priceCfa": "~ 595 000 FCFA",
+    "tagline": "L'eau propre, naturellement.",
+    "imageUrl": "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=600",
+    "description": "Système de pompage de forage 100% solaire fonctionnant jusqu'à 100m de profondeur. Livré avec contrôleur intelligent MPPT. Idéal pour forages, agriculture et élevage.",
+    "specs": [
+      { "label": "Profondeur max", "value": "Jusqu'à 100 m" },
+      { "label": "Contrôleur", "value": "MPPT Intelligente" },
+      { "label": "Alimentation", "value": "100% Solaire" },
+      { "label": "Usage", "value": "Forage, Irrigation & Élevage" }
     ]
   },
   {
@@ -33,104 +92,47 @@
     "type": "Onduleur",
     "category": "Onduleurs",
     "price": "6 900 000 GNF",
-    "tagline": "Pilotez votre énergie en temps réel.",
+    "priceCfa": "~ 482 000 FCFA",
+    "tagline": "Gestion intelligente temps réel & Wi-Fi.",
     "imageUrl": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=600",
-    "description": "Onduleur hybride avec gestion intelligente. Compatible Wi-Fi.",
+    "description": "Onduleur hybride 5000W convertissant et gérant l'énergie solaire, batterie et réseau. Compatible suivi à distance via application mobile SolarGreen.",
     "specs": [
       { "label": "Puissance", "value": "5000 W" },
+      { "label": "Type", "value": "Hybride Pure Sinus" },
+      { "label": "Connectivité", "value": "Wi-Fi & App Mobile" },
       { "label": "Garantie", "value": "10 ans" }
     ]
   },
   {
-    "id": "onduleur-3kw",
-    "name": "Onduleur 3kW Off-Grid",
-    "type": "Onduleur",
-    "category": "Onduleurs",
-    "price": "4 500 000 GNF",
-    "tagline": "L'essentiel pour l'autonomie.",
-    "imageUrl": "https://images.unsplash.com/photo-1592833159155-c62df1b3562a?q=80&w=600",
-    "description": "Solution robuste pour sites isolés.",
+    "id": "cable-solaire-100m",
+    "name": "Rouleau Câble Solaire PV1-F 6mm² (100m)",
+    "type": "Accessoire",
+    "category": "Accessoires",
+    "price": "1 650 000 GNF",
+    "priceCfa": "~ 115 000 FCFA",
+    "tagline": "100% Cuivre pur & Résistance UV.",
+    "imageUrl": "https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?q=80&w=600",
+    "description": "Câble solaire professionnel PV1-F 6mm² (Rouge ou Noir) en cuivre pur. Résistant aux UV, intempéries et auto-extinguible (-40°C à +90°C, 1000V DC).",
     "specs": [
-      { "label": "Puissance", "value": "3000 W" }
-    ]
-  },
-  {
-    "id": "batterie-10kwh",
-    "name": "Batterie Solaire 10 kWh",
-    "type": "Batterie",
-    "category": "Batteries",
-    "price": "19 500 000 GNF",
-    "tagline": "Énergie garantie toute la nuit.",
-    "imageUrl": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=600",
-    "description": "Batterie au lithium LiFePO4 haute densité.",
-    "specs": [
-      { "label": "Capacité", "value": "10 kWh" },
-      { "label": "Technologie", "value": "Lithium" }
-    ]
-  },
-  {
-    "id": "batterie-gel-200ah",
-    "name": "Batterie GEL 200Ah",
-    "type": "Batterie",
-    "category": "Batteries",
-    "price": "2 800 000 GNF",
-    "tagline": "Fiabilité à prix réduit.",
-    "imageUrl": "https://images.unsplash.com/photo-1617576621334-44a569766981?q=80&w=600",
-    "description": "Batterie décharge lente pour petites installations.",
-    "specs": [
-      { "label": "Capacité", "value": "200 Ah" }
+      { "label": "Section", "value": "6 mm² (PV1-F)" },
+      { "label": "Longueur", "value": "100 mètres" },
+      { "label": "Matériau", "value": "100% Cuivre Pur" },
+      { "label": "Tension max", "value": "1000V DC" },
+      { "label": "Température", "value": "-40°C à +90°C" }
     ]
   },
   {
     "id": "serv-install",
-    "name": "Installation Professionnelle",
+    "name": "Installation Professionnelle Certifiée",
     "type": "Service",
     "category": "Services",
     "price": "Sur Devis",
-    "tagline": "Pose certifiée par nos experts.",
+    "priceCfa": "Sur Devis",
+    "tagline": "Pose certifiée par nos ingénieurs experts.",
     "imageUrl": "https://images.unsplash.com/photo-1621905235277-248695029471?q=80&w=600",
-    "description": "Mise en service complète de votre système solaire.",
+    "description": "Étude technique, câblage, installation et mise en service complète de votre système solaire en Guinée et sous-région.",
     "specs": [
-      { "label": "Zone", "value": "Toute la Guinée" }
-    ]
-  },
-  {
-    "id": "serv-audit",
-    "name": "Audit Énergétique",
-    "type": "Service",
-    "category": "Services",
-    "price": "Gratuit",
-    "tagline": "Optimisez vos factures.",
-    "imageUrl": "https://images.unsplash.com/photo-1454165833767-027ff33027b6?q=80&w=600",
-    "description": "Analyse de vos consommations pour une solution sur mesure.",
-    "specs": [
-      { "label": "Durée", "value": "1 heure" }
-    ]
-  },
-  {
-    "id": "acc-structure",
-    "name": "Structure de Montage Toit",
-    "type": "Accessoire",
-    "category": "Accessoires",
-    "price": "450 000 GNF",
-    "tagline": "Fixation robuste en aluminium.",
-    "imageUrl": "https://images.unsplash.com/photo-1548613053-22003006093d?q=80&w=600",
-    "description": "Rails et fixations pour 2 panneaux solaires.",
-    "specs": [
-      { "label": "Matériau", "value": "Aluminium" }
-    ]
-  },
-  {
-    "id": "acc-cable",
-    "name": "Câble Solaire 6mm² (50m)",
-    "type": "Accessoire",
-    "category": "Accessoires",
-    "price": "850 000 GNF",
-    "tagline": "Résistance UV et humidité.",
-    "imageUrl": "https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?q=80&w=600",
-    "description": "Câble professionnel pour raccordement DC.",
-    "specs": [
-      { "label": "Section", "value": "6 mm²" }
+      { "label": "Zone", "value": "Toute la Guinée & Afrique de l'Ouest" }
     ]
   }
 ]

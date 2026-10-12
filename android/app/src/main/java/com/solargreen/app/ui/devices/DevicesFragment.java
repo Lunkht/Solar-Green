@@ -69,7 +69,7 @@ public class DevicesFragment extends Fragment implements SystemStateRepository.S
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_appliance, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_smart_appliance, parent, false);
             return new ViewHolder(v);
         }
 

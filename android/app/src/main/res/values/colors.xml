@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Palette Light - Thème Solar Green (Vert & Fluo) -->
-    <color name="bg">#F8F9FA</color>
+    <!-- SolarGreen Palette Light Theme -->
+    <color name="bg">#F4F6F9</color>
     <color name="bg_soft">#FFFFFF</color>
     <color name="surface_custom">#FFFFFF</color>
+    <color name="card_stroke">#E1E6EB</color>
 
-    <color name="accent">#80B918</color> <!-- Vert profond pour lisibilité -->
-    <color name="accent_dark">#6A9A14</color>
-    <color name="accent_alpha">#1A80B918</color>
+    <color name="accent">#65B300</color> <!-- Deep readable green in light mode -->
+    <color name="accent_dark">#509400</color>
+    <color name="accent_alpha">#1A65B300</color>
+    <color name="accent_glow">#3065B300</color>
 
-    <color name="secondary_accent">#EEF800</color> <!-- Fluo -->
-    <color name="secondary_green">#80B918</color>
-    <color name="secondary_green_alpha">#1A80B918</color>
+    <color name="secondary_accent">#65B300</color>
+    <color name="secondary_green">#65B300</color>
+    <color name="secondary_green_alpha">#1A65B300</color>
 
-    <color name="text_primary">#0A0A09</color>
-    <color name="text_secondary">#80B918</color>
-    <color name="text_dim">#868685</color>
+    <color name="text_primary">#111827</color> <!-- Dark charcoal for high contrast in light mode -->
+    <color name="text_secondary">#65B300</color>
+    <color name="text_dim">#6B7280</color> <!-- Muted grey text -->
 
-    <color name="border_subtle">#D2D2D1</color>
-    <color name="stroke">#E5E5E4</color>
+    <color name="border_subtle">#E5E7EB</color>
+    <color name="stroke">#D1D5DB</color>
+    <color name="chip_green_bg">#1A65B300</color>
 
-    <!-- Gradients Hero/Product -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red_badge">#E53935</color>
+
+    <!-- Navigation & Bottom Bar -->
+    <color name="nav_bg">#FFFFFF</color>
+
     <color name="hero_start">#F2FCE8</color>
     <color name="hero_center">#F8F9FA</color>
     <color name="hero_end">#FFFFFF</color>
@@ -29,13 +38,10 @@
     <color name="product_bg_center">#F8F9FA</color>
     <color name="product_bg_end">#FFFFFF</color>
 
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
-
     <!-- Logo -->
-    <color name="logo_bg">#F8F9FA</color>
-    <color name="logo_letters">#0A0A09</color>
-    <color name="logo_dot">#80B918</color>
+    <color name="logo_bg">#FFFFFF</color>
+    <color name="logo_letters">#111827</color>
+    <color name="logo_dot">#65B300</color>
 
     <!-- Compatibilité -->
     <color name="text">@color/text_primary</color>
